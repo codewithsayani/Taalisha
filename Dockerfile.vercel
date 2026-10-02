@@ -12,6 +12,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Install Node.js for Vite asset compilation
 RUN apk add --no-cache nodejs npm git
 
+# Install required PHP extensions
+RUN install-php-extensions \
+    pdo_mysql \
+    intl \
+    zip \
+    opcache \
+    sodium
+
+
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
