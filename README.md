@@ -1,58 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Talisha Software
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Engineering Intelligent Systems for the Next Digital Era.**
 
-## About Laravel
+Talisha Software is an enterprise-grade web application platform built to showcase cutting-edge solutions in Agentic AI, Cloud Computing, and advanced software development.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Project Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This repository contains the full source code for the Talisha Software public website and internal CMS panel. It features a custom-built cinematic frontend experience alongside a robust backend administration system.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Key Features
+- **Cinematic Frontend**: Custom GSAP animations, including a premium multi-layered amber glow introductory sequence (restored from the original brand identity).
+- **Responsive UI/UX**: Built with Tailwind CSS for flawless performance on all devices.
+- **Filament CMS Admin Panel**: A fully integrated content management system for managing Articles, Case Studies, Services, Industries, Team Members, and more.
+- **Secure Authentication**: Hardened admin login using Spatie Roles & Permissions, enforcing strict access controls.
+- **SEO Optimized**: Dynamic metadata and structured layout for optimal search engine indexing.
 
-## Learning Laravel
+## Tech Stack
+- **Backend:** Laravel 11.x, PHP 8.4, SQLite/MySQL
+- **Frontend:** Tailwind CSS, Alpine.js, GSAP (GreenSock Animation Platform)
+- **Admin Panel:** Filament PHP v3
+- **Build Tools:** Vite
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Installation & Setup
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/codewithsayani/Taalisha.git
+   cd Taalisha
+   ```
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+2. **Install dependencies:**
+   ```bash
+   composer install
+   npm install
+   ```
 
-## Agentic Development
+3. **Environment Setup:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+4. **Database Migration & Seeding:**
+   ```bash
+   php artisan migrate --seed
+   ```
+   *(This will create the necessary tables and populate the default super admin user and settings).*
 
-```bash
-composer require laravel/boost --dev
+5. **Build Frontend Assets:**
+   ```bash
+   npm run build
+   ```
+   *(For active development, run `npm run dev` instead).*
 
-php artisan boost:install
-```
+6. **Serve the Application:**
+   ```bash
+   php artisan serve
+   ```
+   The application will be available at `http://localhost:8000`.
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Accessing the Admin Panel
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Navigate to `/admin` to access the Filament CMS dashboard. 
+*Note: The cinematic intro is intentionally bypassed on all `/admin` routes to ensure instant access to the login portal.*
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is proprietary and confidential. Unauthorized copying, distribution, or modification of this software is strictly prohibited.
