@@ -1,0 +1,28 @@
+FROM dunglas/frankenphp:php8.4-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy the entire Laravel application
+COPY . /app
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Install Node.js for Vite asset compilation
+RUN apk add --no-cache nodejs npm git
+
+# Install Laravel dependencies
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Build frontend assets (Vite)
+RUN npm ci
+RUN npm run build
+
+# Set up required directory permissions for Laravel
+RUN chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+# Vercel provides the dynamic port via the $PORT environment variable.
+# We use FrankenPHP's built-in php-server command to serve the public directory.
+CMD ["sh", "-c", "frankenphp php-server -r public/ --listen :${PORT:-8080}"]
